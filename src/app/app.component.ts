@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { from, of, fromEvent, Observable, interval, ConnectableObservable, timer, empty } from 'rxjs';
-import { retry, delay, concatMap, concat, reduce, tap, map, publish, elementAt, filter, last, catchError, takeLast, finalize  } from 'rxjs/operators';
+import { retry, delay, concatMap, concat, reduce, tap, map, publish, elementAt, filter, last, catchError, takeLast, finalize, mergeMap, skipWhile  } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -116,20 +116,55 @@ export class AppComponent implements OnInit {
         observer.next( 'wonderful' )
       })
     */
-   const observable = Observable.create( observer => {
-    observer.next( 'good' )
-    observer.next( 'great' )
-    observer.next( 'grand' )
-    throw 'catch me!'
-    observer.next( 'wonderful' )
-  })
-  observable.pipe(
-    retry(1),
-    last(),
-    catchError( (err, source) => {
-      return empty()
-    }),
-  ).subscribe(item => console.log('000'+item))
+    const observable = Observable.create( observer => {
+      observer.next( 'good' )
+      observer.next( 'great' )
+      observer.next( 'grand' )
+      throw 'catch me!'
+      observer.next( 'wonderful' )
+    })
+    observable.pipe(
+      retry(1),
+      last(),
+      catchError( (err, source) => {
+        return empty()
+      }),
+    ).subscribe(item => console.log('000'+item))
+    
+    //8
+    /*
+    We are implementing a custom notification system for our web messenger app.
+    1. If a message comes, a user should see notification with details of who wrote a message. Notification disappears after 3s.
+    2. If user A wrote to me twice within these 3s, I should see only one notification. System starts counting 3s when user A writes, and would ignore subsequent messages from him(throttling), but AFTER 3s would again listen to messages from him.
+    3. If however some other user B writes to me within these 3s, I should see new notification, this time counting(for B only) from the moment I got first message from B.
+    */
+
+    let notifications = [ 
+    { userId: 1, name: 'A1', delay: 100 }, // should be shown
+    { userId: 1, name: 'A2', delay: 1500 }, // shouldn't be shown
+    { userId: 1, name: 'A3', delay: 2500 }, // shouldn't be shown
+    { userId: 1, name: 'A4', delay: 3500 }, // should be shown
+    { userId: 2, name: 'B1', delay: 200 }, // should be shown
+    { userId: 2, name: 'B2', delay: 300 }, // shouldn't be shown
+    { userId: 2, name: 'B3', delay: 3500 }, // should be shown
+    ]
+    let timer: number;
+    let author: number;
+    from(notifications).pipe(
+        mergeMap((notif) => {
+        return of(notif).pipe(delay(notif.delay));
+      }),
+      tap(val => {
+        author = val.userId;
+           if (+timer + +val.delay < 3000) timer+= val.delay
+        else timer = 0;
+      }),
+      filter(val => {
+        return timer === 0 
+      })
+    ).subscribe(val => console.log(val) )
+    
+    // distinct
 
   }
 }

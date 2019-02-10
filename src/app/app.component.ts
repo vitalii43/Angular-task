@@ -116,6 +116,7 @@ export class AppComponent implements OnInit {
         observer.next( 'wonderful' )
       })
     */
+   let res;
     const observable = Observable.create( observer => {
       observer.next( 'good' )
       observer.next( 'great' )
@@ -124,12 +125,11 @@ export class AppComponent implements OnInit {
       observer.next( 'wonderful' )
     })
     observable.pipe(
-      retry(1),
-      last(),
+      tap( val => res = val),
       catchError( (err, source) => {
-        return empty()
+        return of(res)
       }),
-    ).subscribe(item => console.log('000'+item))
+    ).subscribe(item => console.log(item))
     
     //8
     /*
@@ -149,18 +149,27 @@ export class AppComponent implements OnInit {
     { userId: 2, name: 'B3', delay: 3500 }, // should be shown
     ]
     let timer: number;
-    let author: number;
+    let previousAuthor : number;
+    let curentAuthor: number;
+    
     from(notifications).pipe(
         mergeMap((notif) => {
         return of(notif).pipe(delay(notif.delay));
       }),
       tap(val => {
-        author = val.userId;
-           if (+timer + +val.delay < 3000) timer+= val.delay
+        previousAuthor = curentAuthor
+        curentAuthor = val.userId;
+
+        if (+timer + +val.delay < 3000) timer+= val.delay
         else timer = 0;
       }),
       filter(val => {
-        return timer === 0 
+        console.log(previousAuthor, curentAuthor)
+        if ( previousAuthor && curentAuthor ){
+          return  timer === 0 || previousAuthor !== curentAuthor
+        }
+        else return  timer === 0 
+        
       })
     ).subscribe(val => console.log(val) )
     

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { from, of, fromEvent, Observable, interval, ConnectableObservable, timer, empty } from 'rxjs';
 import { retry, delay, concatMap, concat, reduce, tap, map, publish, elementAt, filter, last, catchError, takeLast, finalize, mergeMap, skipWhile  } from 'rxjs/operators';
@@ -8,12 +8,15 @@ import { retry, delay, concatMap, concat, reduce, tap, map, publish, elementAt, 
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   title = 'angular-rx-task';
-
+  clickSubscr: any;
   ngOnInit(){
 
     //1
+    //From an array emit items one by one [1,2,3];
+    //from([1,2,3])
+    //of([1,2,3])
     const arr = [ 1, 2, 3];
 
     const fromArr1 = from(arr);
@@ -25,6 +28,7 @@ export class AppComponent implements OnInit {
     fromArr2.subscribe((item) => { console.log(`fromArr2: ${item}`) });
 
     //2
+    //Combine the results and multiply they
     const getConversionRate$ = of(0.5);
     const getAmountToConvert$ = of(100);
 
@@ -35,12 +39,14 @@ export class AppComponent implements OnInit {
     combAndMultip.subscribe((val) => {console.log(`combine and multiply ${val}`)})
 
     //3
+    //Create an observable from window mouse clicks and show coordinates in console.
     const clickEvent = fromEvent(document, 'click').pipe(
       map( (event : any) =>  { return {x: event.x, y: event.y} })
     )
-    const clickEventObser = clickEvent.subscribe( event => console.log(event) )
+    this.clickSubscr = clickEvent.subscribe( event => console.log(event) )
 
     //4
+    //Convert a promise to an observable
     const promise = new Promise((resolve, reject) => {
       setTimeout(() => {
           resolve('resolved!')
@@ -153,27 +159,27 @@ export class AppComponent implements OnInit {
     let curentAuthor: number;
     
     from(notifications).pipe(
-        mergeMap((notif) => {
+      concatMap((notif) => {
         return of(notif).pipe(delay(notif.delay));
       }),
       tap(val => {
         previousAuthor = curentAuthor
         curentAuthor = val.userId;
 
-        if (+timer + +val.delay < 3000) timer+= val.delay
-        else timer = 0;
+        //if (val.delay < 3000) timer+= val.delay
+        //else timer = 0;
       }),
       filter(val => {
         console.log(previousAuthor, curentAuthor)
-        if ( previousAuthor && curentAuthor ){
-          return  timer === 0 || previousAuthor !== curentAuthor
-        }
-        else return  timer === 0 
+        return (true)       
         
       })
     ).subscribe(val => console.log(val) )
     
     // distinct
 
+  }
+  ngOnDestroy(){
+    this.clickSubscr.unsubscribe()
   }
 }

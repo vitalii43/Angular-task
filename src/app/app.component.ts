@@ -154,25 +154,31 @@ export class AppComponent implements OnInit, OnDestroy {
     { userId: 2, name: 'B2', delay: 300 }, // shouldn't be shown
     { userId: 2, name: 'B3', delay: 3500 }, // should be shown
     ]
-    let timer: number;
+    let timer: Date;
     let previousAuthor : number;
     let curentAuthor: number;
-    
+    let flag = true;
     from(notifications).pipe(
-      concatMap((notif) => {
+      mergeMap((notif) => {
         return of(notif).pipe(delay(notif.delay));
       }),
       tap(val => {
         previousAuthor = curentAuthor
         curentAuthor = val.userId;
 
-        //if (val.delay < 3000) timer+= val.delay
-        //else timer = 0;
+        if (timer){
+          if(new Date().getMilliseconds() - timer.getMilliseconds() >= 3000){
+            flag = true;
+          }else{
+            flag = false;
+            timer = new Date();
+          }
+        }else{
+          timer = new Date()
+        }
       }),
       filter(val => {
-        console.log(previousAuthor, curentAuthor)
-        return (true)       
-        
+        return (flag || curentAuthor !== previousAuthor)     
       })
     ).subscribe(val => console.log(val) )
     

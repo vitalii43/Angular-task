@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { from, of, fromEvent, Observable, interval, ConnectableObservable, timer, empty } from 'rxjs';
-import { retry, delay, concatMap, concat, reduce, tap, map, publish, elementAt, filter, last, catchError, takeLast, finalize, mergeMap, skipWhile  } from 'rxjs/operators';
+import { retry, delay, concatMap, concat, reduce, tap, map, publish, elementAt, filter, last, catchError, takeLast, finalize, mergeMap, skipWhile, groupBy, throttle, merge  } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -162,28 +162,14 @@ export class AppComponent implements OnInit, OnDestroy {
       mergeMap((notif) => {
         return of(notif).pipe(delay(notif.delay));
       }),
-      tap(val => {
-        previousAuthor = curentAuthor
-        curentAuthor = val.userId;
-
-        if (timer){
-          if(new Date().getMilliseconds() - timer.getMilliseconds() >= 3000){
-            flag = true;
-          }else{
-            flag = false;
-            timer = new Date();
-          }
-        }else{
-          timer = new Date()
-        }
-      }),
-      filter(val => {
-        return (flag || curentAuthor !== previousAuthor)     
+      groupBy(item => {
+        return item.userId
+      }),  
+      mergeMap( (val:any) => {
+        return val.pipe( throttle(ev => interval(3000)) )
       })
     ).subscribe(val => console.log(val) )
-    
-    // distinct
-
+  
   }
   ngOnDestroy(){
     this.clickSubscr.unsubscribe()

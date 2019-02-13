@@ -1,0 +1,8 @@
+<p>
+  core works!
+</p>
+<div class="product-list">
+  <ng-container *ngFor = "let product of (products | async)" >
+    <app-card [productDetails] = "product"></app-card>
+  </ng-container>
+</div>

@@ -1,19 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CoreComponent } from './core.component';
-import { CoreRoutingModule } from './core-routing.module';
-import { SharedModule } from './shared/shared.module';
+import { NavComponent } from './nav/nav.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
-  declarations: [CoreComponent],
+  declarations: [NavComponent, FooterComponent],
   imports: [
     CommonModule,
-    CoreRoutingModule,
-    SharedModule
+
   ],
   exports: [
-    CoreComponent
   ]
 })
 export class CoreModule { }

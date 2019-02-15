@@ -1,16 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Product, productList } from './entities/product-list';
-import { Observable, from, of } from 'rxjs';
+import { Product } from './entities';
+import { Observable, from, of, empty } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ProductService {
 
   constructor() { }
 
   getProducts(): Observable<Product[]> {
-    return of(productList);
+    return empty();
   }
 
 }

@@ -1,0 +1,31 @@
+.banner{
+    text-align: end;
+    display:flex;
+    flex-direction: column;
+    align-items: flex-end;
+    min-height: 300px;
+    justify-content: center;
+    background: #b4b4b4;
+    margin:2em;
+    padding: 1em;
+    
+    &__header{
+        width:50%
+    }
+    &__description{
+        width: 50%;
+    }
+}
+
+.sales{
+    &__body{
+        display: flex;
+        justify-content: center;
+        .sale{
+            width: 22em;
+            height: 21em;
+            background: #b1b1b1;
+            margin: 1em;
+        }
+    }
+}

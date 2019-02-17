@@ -1,0 +1,29 @@
+<section class="banner">
+  <h2 class="banner__header">Suspendisse interdum rutrum nise</h2>
+  <p class="banner__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas assumenda nisi culpa itaque magni vel nostrum harum, aspernatur tempore doloremque dicta animi perferendis corrupti inventore dolore nemo, beatae dolorum asperiores?</p>
+</section>
+
+<section class="sales">
+  <div class="sales__header h2 text-center">
+    Sales
+  </div>
+  <div class="sales__body">
+      <div class="sale"></div>
+      <div class="sale"></div>
+      <div class="sale"></div>
+      <div class="sale"></div>
+  </div>  
+</section>
+
+<section class="feature-products">
+  <div class="feature-products__header h2 text-center">
+    Feature products
+  </div>
+  <div class="feature-products__body">
+    <app-cards-container [cards]="products | async"></app-cards-container>
+  </div>  
+</section>
+
+<div class="view-all">
+    <i class="show-all-iron fas fa-arrow-alt-right">df</i>
+</div>

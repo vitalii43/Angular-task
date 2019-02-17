@@ -1,3 +1,11 @@
-<p>
-  product-list works!
-</p>
+<div class="products-wrap">
+    <div class="filter">
+      <form action="">
+        <label for="">filter</label>
+        <input type="text">
+        <label for="">filter</label>
+        <input type="text">
+      </form>
+    </div>
+    <app-cards-container [cards]="products | async"></app-cards-container>
+</div>

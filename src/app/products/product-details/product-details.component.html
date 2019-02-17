@@ -1,3 +1,30 @@
-<p>
-  product-details works!
-</p>
+<section class="product">
+  <div class="product__images">
+    <img class="main-photo" [src]="(product | async)?.photoURL" alt="prod img">
+    <img class="thumbnail1" [src]="(product | async)?.thumbnailUrl" alt="prod img">
+    <img class="thumbnail2" [src]="(product | async)?.thumbnailUrl" alt="prod img">
+    <img class="thumbnail3" [src]="(product | async)?.thumbnailUrl" alt="prod img">
+  </div>
+  <div class="product-info">
+    <h1>{{(product | async)?.name}}</h1>
+    <p>{{(product | async)?.title}}</p>
+    <hr>
+    <div class="wrap">
+      <div class="description">{{(product | async)?.description}}</div>
+      <form class="cart-form" action="">
+        <p>{{(product | async)?.price}} $</p>
+        <input type="text">
+        <button>add to cart</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="interesting-products">
+    <div class="interesting-products__header h2 text-center">
+      You may also be Interested in products
+    </div>
+    <div class="interesting-products__body">
+      <app-cards-container [cards]="interestingProducts | async"></app-cards-container>
+    </div>  
+</section>

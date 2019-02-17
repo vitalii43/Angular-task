@@ -9,6 +9,7 @@ import { Product } from '../../core/entities';
 export class CardComponent implements OnInit {
 
   @Input() cardData: Product;
+  @Input() cardId: number;
 
   constructor() { }
 

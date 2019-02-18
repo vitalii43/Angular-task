@@ -1,5 +1,14 @@
-:host{
-    display: block;
-    height: 4em;
-    background: #6d6d6d
+.nav{
+    display: flex;
+    justify-content: space-around;
+    background: #c4bebe;
+    padding: 1em;
+    .links{
+        a{
+            margin: 1em;
+        }
+    }
+}
+.active-link{
+    color: #000;
 }

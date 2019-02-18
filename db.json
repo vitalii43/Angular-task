@@ -2,70 +2,70 @@
     "products" : [
         {
             "title"  : "some title",
-            "name": "cool name",
+            "name": "cool name 1",
             "description": "description about the product fv dfv dfv fdv d f vdf df vfvf d df df vd ",
             "price": 900,
-            "color": ["white", "black", "silver"],
+            "color": ["white"],
             "photoURL": "https://via.placeholder.com/600/f66b97",
             "thumbnailUrl": "https://via.placeholder.com/150/f66b97"
         },
         {
             "title"  : "some title",
-            "name": "cool name",
+            "name": "cool name 2",
             "description": "description about the product fv dfv dfv fdv d f vdf df vfvf d df df vd ",
             "price": 390,
-            "color": ["white", "black", "silver"],
+            "color": ["white", "black"],
             "photoURL": "https://via.placeholder.com/600/92c952",
             "thumbnailUrl": "https://via.placeholder.com/150/92c952"
         },
         {
             "title"  : "some title",
-            "name": "cool name",
+            "name": "cool name 3",
             "description": "description about the product fv dfv dfv fdv d f vdf df vfvf d df df vd ",
             "price": 570,
-            "color": ["white", "black", "silver"],
+            "color": ["black", "silver"],
             "photoURL": "https://via.placeholder.com/600/5e3a73",
             "thumbnailUrl": "https://via.placeholder.com/150/5e3a73"
         },
         {
             "title"  : "some title",
-            "name": "cool name",
+            "name": "cool name 4",
             "description": "description about the product fv dfv dfv fdv d f vdf df vfvf d df df vd ",
             "price": 880,
-            "color": ["white", "black", "silver"],
+            "color": [ "green", "red" ],
             "photoURL": "https://via.placeholder.com/600/92c952",
             "thumbnailUrl": "https://via.placeholder.com/150/92c952"
         },
         {
             "title"  : "some title",
-            "name": "cool name",
+            "name": "cool name 5",
             "description": "description about the product fv dfv dfv fdv d f vdf df vfvf d df df vd ",
             "price": 490,
-            "color": ["white", "black", "silver"],
+            "color": ["white", "red"],
             "photoURL":  "https://via.placeholder.com/600/fdf73e",
             "thumbnailUrl": "https://via.placeholder.com/150/fdf73e"    
         },
         {
             "title"  : "some title",
-            "name": "cool name",
+            "name": "cool name 6",
             "description": "description about the product fv dfv dfv fdv d f vdf df vfvf d df df vd ",
             "price": 900,
-            "color": ["white", "black", "silver"],
+            "color": ["red"],
             "photoURL": "https://via.placeholder.com/600/f66b97",
             "thumbnailUrl": "https://via.placeholder.com/150/f66b97"
         },
         {
             "title"  : "some title",
-            "name": "cool name",
+            "name": "cool name 7",
             "description": "description about the product fv dfv dfv fdv d f vdf df vfvf d df df vd ",
             "price": 390,
-            "color": ["white", "black", "silver"],
+            "color": ["white"],
             "photoURL": "https://via.placeholder.com/600/92c952",
             "thumbnailUrl": "https://via.placeholder.com/150/92c952"
         },
         {
             "title"  : "some title",
-            "name": "cool name",
+            "name": "cool name 8",
             "description": "description about the product fv dfv dfv fdv d f vdf df vfvf d df df vd ",
             "price": 570,
             "color": ["white", "black", "silver"],
@@ -74,7 +74,7 @@
         },
         {
             "title"  : "some title",
-            "name": "cool name",
+            "name": "cool name 9",
             "description": "description about the product fv dfv dfv fdv d f vdf df vfvf d df df vd ",
             "price": 880,
             "color": ["white", "black", "silver"],
@@ -86,7 +86,7 @@
             "name": "cool name",
             "description": "description about the product fv dfv dfv fdv d f vdf df vfvf d df df vd ",
             "price": 490,
-            "color": ["white", "black", "silver"],
+            "color": ["silver"],
             "photoURL":  "https://via.placeholder.com/600/fdf73e",
             "thumbnailUrl": "https://via.placeholder.com/150/fdf73e"    
         },

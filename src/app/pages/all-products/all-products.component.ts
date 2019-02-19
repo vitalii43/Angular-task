@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from 'src/app/core/product.service';
+
 import { Observable } from 'rxjs';
-import { Product } from 'src/app/core/entities';
+import { Product, ProductService } from '../../products';
 
 @Component({
   selector: 'app-product-list',
-  templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.scss']
+  templateUrl: './all-products.component.html',
+  styleUrls: ['./all-products.component.scss']
 })
-export class ProductListComponent implements OnInit {
+export class AllProductsComponent implements OnInit {
 
   public products: Observable<Product[]>;
 
@@ -19,3 +19,4 @@ export class ProductListComponent implements OnInit {
   }
 
 }
+

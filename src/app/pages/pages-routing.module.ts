@@ -16,7 +16,7 @@ const routes: Routes = [
       },
       {
         path: 'product',
-        children:[
+        children: [
           {
             path: '',
             component: AllProductsComponent

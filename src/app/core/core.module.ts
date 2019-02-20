@@ -13,6 +13,6 @@ import { AuthService } from './auth.service';
     RouterModule
   ],
   providers: [AuthService],
- 
+
 })
 export class CoreModule { }

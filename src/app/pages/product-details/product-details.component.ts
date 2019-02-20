@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Product, ProductService} from "../../products";
+import { Product, ProductService} from '../../products';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.scss']
 })
-export class ProductDetailsComponent implements OnInit {
+export class ProductDetailsComponent implements OnInit, OnDestroy {
 
   public interestingProducts: Observable<Product[]>;
   public product: Observable<Product>;
@@ -24,5 +24,8 @@ export class ProductDetailsComponent implements OnInit {
       this.product = this.productService.getProductDetails(id);
       // console.log(this.product)
     });
+  }
+  ngOnDestroy() {
+    this.routeSubscr.unsubscribe();
   }
 }

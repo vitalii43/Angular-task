@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Product } from './entities';
+import { Product, FilterDetails } from './entities';
 import { Observable, from, of, empty } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map, mergeMap, elementAt } from 'rxjs/operators';
@@ -40,5 +40,24 @@ export class ProductService {
     );
   }
 
+  filterProducts(filterInfo: FilterDetails): Observable<Product[]> {
+    return this.products.pipe(
+      map((prodList: Product[]) => {
+        let newList = prodList;
+
+        if (filterInfo.minPrice) {
+            newList = newList.filter( (item: Product) => item.price >= filterInfo.minPrice );
+          }
+        if (filterInfo.maxPrice) {
+            newList = newList.filter( (item: Product) => item.price <= filterInfo.maxPrice );
+          }
+        if ( filterInfo.color !== 'all' && filterInfo.color !== '' ) {
+            newList = newList.filter( (item: Product) => item.color.indexOf(filterInfo.color) !== -1 );
+          }
+
+        return newList;
+      })
+    );
+  }
 
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Observable } from 'rxjs';
-import { Product, ProductService } from '../../products';
+import { Product, ProductService, FilterDetails } from '../../products';
 
 @Component({
   selector: 'app-product-list',
@@ -16,6 +16,9 @@ export class AllProductsComponent implements OnInit {
 
   ngOnInit() {
     this.products = this.productService.getAllProducts();
+  }
+  filterProducts(filterInfo: FilterDetails) {
+    this.products = this.productService.filterProducts(filterInfo);
   }
 
 }

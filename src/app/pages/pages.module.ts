@@ -12,9 +12,9 @@ import { ProductService } from '../products';
 
 @NgModule({
   declarations: [
-    HomeComponent, 
-    AllProductsComponent, 
-    ProductDetailsComponent, 
+    HomeComponent,
+    AllProductsComponent,
+    ProductDetailsComponent,
     PageWrapComponent
   ],
   imports: [
@@ -23,7 +23,7 @@ import { ProductService } from '../products';
     ProductsModule,
     SharedModule
   ],
-  providers:[
+  providers: [
     ProductService
   ]
 })

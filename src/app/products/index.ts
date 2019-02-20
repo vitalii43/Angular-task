@@ -1,2 +1,2 @@
-export { ProductService } from './product.service'
-export { Product } from './entities'
+export { ProductService } from './product.service';
+export * from './entities';

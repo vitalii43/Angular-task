@@ -8,10 +8,11 @@ import { CardComponent } from './card/card.component';
 import { CardsContainerComponent } from './cards-container/cards-container.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [ 
-    FilterProductsComponent, 
+  declarations: [
+    FilterProductsComponent,
     OrderProductComponent,
     CardComponent,
     CardsContainerComponent
@@ -20,7 +21,9 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     SharedModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     CardsContainerComponent,

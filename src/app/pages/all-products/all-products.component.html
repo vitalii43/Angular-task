@@ -1,4 +1,4 @@
 <div class="products-wrap">
-  <app-filter-products></app-filter-products>
+  <app-filter-products class="filter-component" (filterChanges)="filterProducts($event)"></app-filter-products>
   <app-cards-container [cards]="products | async"></app-cards-container>
 </div>

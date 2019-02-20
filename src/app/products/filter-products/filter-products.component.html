@@ -1,8 +1,32 @@
 <div class="filter">
-  <form action="">
-    <label for="">filter</label>
-    <input type="text">
-    <label for="">filter</label>
-    <input type="text">
+  <form class="filter__form" [formGroup]="filterForm">
+    <div class="price-filter form-group">  
+      <div>Price filter</div>
+      <div class="d-flex">
+        <input formControlName="minPrice" class="form-control price-input" type="text" id="minprice" placeholder="min"> 
+        <input formControlName="maxPrice" class="form-control price-input" type="text" id="maxprice" placeholder="max">
+      </div>
+      <div *ngIf="filterForm.controls['minPrice'].errors?.pattern" class="price-error">
+        Min price dosen't follow pattern.
+      </div>   
+      <div *ngIf="filterForm.controls['maxPrice'].errors?.pattern" class="price-error">
+        Max price dosen't follow pattern.
+      </div>
+      <div *ngIf="filterForm.errors?.priceRange" class="price-error">
+        Min price should be smaler than max price.
+      </div>   
+    </div>
+    
+    <label for="selectcolor">Example select</label>
+    <select formControlName="color" class="form-control" id="selectcolor">
+      <option value="all">all</option>
+      <option value="black">black</option>
+      <option value="white">white</option>
+      <option value="green">green</option>
+      <option value="red">red</option>
+      <option value="silver">grey</option>
+    </select>
+   
   </form>
 </div>
+

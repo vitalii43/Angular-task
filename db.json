@@ -243,38 +243,7 @@
             "id": 15,
             "interesting": false,
             "feature": true
-        },
-        {
-            "title": "some title",
-            "name": "cool name",
-            "description": "description about the product fv dfv dfv fdv d f vdf df vfvf d df df vd ",
-            "price": 390,
-            "color": [
-                "white",
-                "black",
-                "silver"
-            ],
-            "photoURL": "https://via.placeholder.com/600/92c952",
-            "thumbnailUrl": "https://via.placeholder.com/150/92c952",
-            "id": 16,
-            "interesting": true,
-            "feature": false
-        },
-        {
-            "title": "some title",
-            "name": "cool name",
-            "description": "description about the product fv dfv dfv fdv d f vdf df vfvf d df df vd ",
-            "price": 570,
-            "color": [
-                "white",
-                "black",
-                "silver"
-            ],
-            "photoURL": "https://via.placeholder.com/600/5e3a73",
-            "thumbnailUrl": "https://via.placeholder.com/150/5e3a73",
-            "id": 17,
-            "interesting": true,
-            "feature": false
         }
+        
     ]
 }

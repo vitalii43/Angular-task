@@ -19,7 +19,7 @@ export class ProductService {
   getFeatureProducts(): Observable<Product[]> {
     return this.products.pipe(
       map( arr => {
-        return arr.slice(0, 4);
+        return arr.filter(elem => elem.feature);
       })
     );
   }
@@ -27,16 +27,17 @@ export class ProductService {
   getInterestedInProducts(): Observable<Product[]> {
     return this.products.pipe(
       map( arr => {
-        return arr.slice(0, 4);
+        return arr.filter( elem => elem.interesting);
       })
     );
   }
 
-  getProductDetails(id: number): Observable<Product> {
+  getProductDetails(id: string): Observable<Product> {
     console.log(id);
     return this.products.pipe(
-      mergeMap(arr => arr),
-      elementAt(id)
+      map( arr => {
+        return arr.find( elem => elem.id === id );
+      })
     );
   }
 

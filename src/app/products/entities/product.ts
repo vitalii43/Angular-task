@@ -6,4 +6,7 @@ export interface Product {
     color: string[];
     photoURL: string;
     thumbnailUrl: string;
+    id: string;
+    interesting: boolean;
+    feature: boolean;
 }

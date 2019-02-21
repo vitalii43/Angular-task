@@ -20,7 +20,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.interestingProducts = this.productService.getInterestedInProducts();
     this.routeSubscr = this.activeRoute.paramMap.subscribe(params => {
-      const id = +params.get('id');
+      const id = params.get('id');
       this.product = this.productService.getProductDetails(id);
       // console.log(this.product)
     });

@@ -10,7 +10,9 @@
             ],
             "photoURL": "https://via.placeholder.com/600/f66b97",
             "thumbnailUrl": "https://via.placeholder.com/150/f66b97",
-            "id": 0
+            "id": 0,
+            "interesting": false,
+            "feature": true
         },
         {
             "title": "some title",
@@ -23,7 +25,9 @@
             ],
             "photoURL": "https://via.placeholder.com/600/92c952",
             "thumbnailUrl": "https://via.placeholder.com/150/92c952",
-            "id": 1
+            "id": 1,
+            "interesting": false,
+            "feature": false
         },
         {
             "title": "some title",
@@ -36,7 +40,9 @@
             ],
             "photoURL": "https://via.placeholder.com/600/5e3a73",
             "thumbnailUrl": "https://via.placeholder.com/150/5e3a73",
-            "id": 2
+            "id": 2,
+            "interesting": true,
+            "feature": true
         },
         {
             "title": "some title",
@@ -49,7 +55,9 @@
             ],
             "photoURL": "https://via.placeholder.com/600/92c952",
             "thumbnailUrl": "https://via.placeholder.com/150/92c952",
-            "id": 3
+            "id": 3,
+            "interesting": true,
+            "feature": true
         },
         {
             "title": "some title",
@@ -62,7 +70,9 @@
             ],
             "photoURL": "https://via.placeholder.com/600/fdf73e",
             "thumbnailUrl": "https://via.placeholder.com/150/fdf73e",
-            "id": 4
+            "id": 4,
+            "interesting": true,
+            "feature": true
         },
         {
             "title": "some title",
@@ -74,7 +84,9 @@
             ],
             "photoURL": "https://via.placeholder.com/600/f66b97",
             "thumbnailUrl": "https://via.placeholder.com/150/f66b97",
-            "id": 5
+            "id": 5,
+            "interesting": true,
+            "feature": false
         },
         {
             "title": "some title",
@@ -86,7 +98,9 @@
             ],
             "photoURL": "https://via.placeholder.com/600/92c952",
             "thumbnailUrl": "https://via.placeholder.com/150/92c952",
-            "id": 6
+            "id": 6,
+            "interesting": true,
+            "feature": false
         },
         {
             "title": "some title",
@@ -100,7 +114,9 @@
             ],
             "photoURL": "https://via.placeholder.com/600/5e3a73",
             "thumbnailUrl": "https://via.placeholder.com/150/5e3a73",
-            "id": 7
+            "id": 7,
+            "interesting": false,
+            "feature": false
         },
         {
             "title": "some title",
@@ -114,7 +130,9 @@
             ],
             "photoURL": "https://via.placeholder.com/600/92c952",
             "thumbnailUrl": "https://via.placeholder.com/150/92c952",
-            "id": 8
+            "id": 8,
+            "interesting": true,
+            "feature": true
         },
         {
             "title": "some title",
@@ -126,7 +144,9 @@
             ],
             "photoURL": "https://via.placeholder.com/600/fdf73e",
             "thumbnailUrl": "https://via.placeholder.com/150/fdf73e",
-            "id": 9
+            "id": 9,
+            "interesting": true,
+            "feature": false
         },
         {
             "title": "some title",
@@ -140,7 +160,9 @@
             ],
             "photoURL": "https://via.placeholder.com/600/f66b97",
             "thumbnailUrl": "https://via.placeholder.com/150/f66b97",
-            "id": 10
+            "id": 10,
+            "interesting": false,
+            "feature": true
         },
         {
             "title": "some title",
@@ -154,7 +176,9 @@
             ],
             "photoURL": "https://via.placeholder.com/600/92c952",
             "thumbnailUrl": "https://via.placeholder.com/150/92c952",
-            "id": 11
+            "id": 11,
+            "interesting": false,
+            "feature": false
         },
         {
             "title": "some title",
@@ -168,7 +192,9 @@
             ],
             "photoURL": "https://via.placeholder.com/600/5e3a73",
             "thumbnailUrl": "https://via.placeholder.com/150/5e3a73",
-            "id": 12
+            "id": 12,
+            "interesting": false,
+            "feature": true
         },
         {
             "title": "some title",
@@ -182,7 +208,9 @@
             ],
             "photoURL": "https://via.placeholder.com/600/92c952",
             "thumbnailUrl": "https://via.placeholder.com/150/92c952",
-            "id": 13
+            "id": 13,
+            "interesting": false,
+            "feature": true
         },
         {
             "title": "some title",
@@ -196,7 +224,9 @@
             ],
             "photoURL": "https://via.placeholder.com/600/fdf73e",
             "thumbnailUrl": "https://via.placeholder.com/150/fdf73e",
-            "id": 14
+            "id": 14,
+            "interesting": false,
+            "feature": false
         },
         {
             "title": "some title",
@@ -210,7 +240,9 @@
             ],
             "photoURL": "https://via.placeholder.com/600/f66b97",
             "thumbnailUrl": "https://via.placeholder.com/150/f66b97",
-            "id": 15
+            "id": 15,
+            "interesting": false,
+            "feature": true
         },
         {
             "title": "some title",
@@ -224,7 +256,9 @@
             ],
             "photoURL": "https://via.placeholder.com/600/92c952",
             "thumbnailUrl": "https://via.placeholder.com/150/92c952",
-            "id": 16
+            "id": 16,
+            "interesting": true,
+            "feature": false
         },
         {
             "title": "some title",
@@ -238,7 +272,9 @@
             ],
             "photoURL": "https://via.placeholder.com/600/5e3a73",
             "thumbnailUrl": "https://via.placeholder.com/150/5e3a73",
-            "id": 17
+            "id": 17,
+            "interesting": true,
+            "feature": false
         },
         {
             "title": "some title",
@@ -252,7 +288,9 @@
             ],
             "photoURL": "https://via.placeholder.com/600/92c952",
             "thumbnailUrl": "https://via.placeholder.com/150/92c952",
-            "id": 18
+            "id": 18,
+            "interesting": true,
+            "feature": true
         },
         {
             "title": "some title",
@@ -266,7 +304,9 @@
             ],
             "photoURL": "https://via.placeholder.com/600/fdf73e",
             "thumbnailUrl": "https://via.placeholder.com/150/fdf73e",
-            "id": 19
+            "id": 19,
+            "interesting": false,
+            "feature": false
         }
     ]
 }

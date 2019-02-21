@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 
 import { FilterDetails } from '../entities';
-import { priceRangeValidator } from './priceRangeValidator';
+import { priceRangeValidator } from '../priceRangeValidator';
 
 @Component({
   selector: 'app-filter-products',
@@ -25,7 +25,7 @@ export class FilterProductsComponent implements OnInit, OnDestroy {
       maxPrice: ['', Validators.pattern(/^[0-9]*$/)],
       color: ['']
     }, {
-      validator: priceRangeValidator
+      validators: priceRangeValidator
     });
 
     this.changes$ = this.filterForm.valueChanges.pipe(

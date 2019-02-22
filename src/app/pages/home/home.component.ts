@@ -9,11 +9,11 @@ import { Observable } from 'rxjs';
 })
 export class HomeComponent implements OnInit {
 
-  public products: Observable<Product[]>;
+  public featureProducts: Observable<Product[]>;
   constructor(private prodService: ProductService) {
 
   }
   ngOnInit() {
-    this.products = this.prodService.getFeatureProducts();
+    this.featureProducts = this.prodService.getFeatureProducts();
   }
 }

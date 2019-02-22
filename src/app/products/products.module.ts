@@ -15,7 +15,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     FilterProductsComponent,
     OrderProductComponent,
     CardComponent,
-    CardsContainerComponent
+    CardsContainerComponent,
   ],
   imports: [
     CommonModule,

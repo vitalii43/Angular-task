@@ -25,6 +25,6 @@
       You may also be Interested in products
     </div>
     <div class="interesting-products__body">
-      <app-cards-container [cards]="interestingProducts | async"></app-cards-container>
+      <app-cards-container [cards]="interestingProducts | async | slice:0:4"></app-cards-container>
     </div>  
 </section>

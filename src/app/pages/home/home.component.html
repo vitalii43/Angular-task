@@ -20,9 +20,11 @@
     Feature products
   </div>
   <div class="feature-products__body">
-    <app-cards-container [cards]="products | async"></app-cards-container>
+    <app-cards-container [cards]="featureProducts | async | slice:0:4"></app-cards-container>
   </div>  
 </section>
+
+
 
 <div class="view-all">
   <a [routerLink]="['/product']">

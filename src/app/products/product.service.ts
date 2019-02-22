@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Product, FilterDetails } from './entities';
 import { Observable, from, of, empty } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { map, mergeMap, elementAt } from 'rxjs/operators';
+import { map, mergeMap, elementAt, min } from 'rxjs/operators';
 
 @Injectable()
 export class ProductService {
@@ -32,7 +32,8 @@ export class ProductService {
     );
   }
 
-  getProductDetails(id: string): Observable<Product> {
+  getProductDetails(id: number): Observable<Product> {
+
     console.log(id);
     return this.products.pipe(
       map( arr => {
@@ -42,21 +43,18 @@ export class ProductService {
   }
 
   filterProducts(filterInfo: FilterDetails): Observable<Product[]> {
+
     return this.products.pipe(
       map((prodList: Product[]) => {
-        let newList = prodList;
+        console.log(filterInfo);
+        let { minPrice, maxPrice, color} = filterInfo;
 
-        if (filterInfo.minPrice) {
-            newList = newList.filter( (item: Product) => item.price >= filterInfo.minPrice );
-          }
-        if (filterInfo.maxPrice) {
-            newList = newList.filter( (item: Product) => item.price <= filterInfo.maxPrice );
-          }
-        if ( filterInfo.color !== 'all' && filterInfo.color !== '' ) {
-            newList = newList.filter( (item: Product) => item.color.indexOf(filterInfo.color) !== -1 );
-          }
+        if ( !minPrice ) { minPrice = 0; }
+        if ( !maxPrice ) { maxPrice = Number.MAX_SAFE_INTEGER; }
+        if ( !color ) { color = 'all'; }
 
-        return newList;
+        return prodList.filter( item => item.price > minPrice && item.price < maxPrice )
+                       .filter( item => item.color.includes(color) || color === 'all' );
       })
     );
   }

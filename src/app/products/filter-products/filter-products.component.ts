@@ -32,9 +32,11 @@ export class FilterProductsComponent implements OnInit, OnDestroy {
       debounceTime(500)
     );
 
-    this.changesSubscription = this.changes$.subscribe( (val: FilterDetails) => {
+    this.changesSubscription = this.changes$.subscribe( (val) => {
       console.log(this.filterForm.valid);
       if (this.filterForm.valid) {
+        val.maxPrice = parseInt(val.maxPrice, 10);
+        val.minPrice = parseInt(val.minPrice, 10);
         this.filterChanges.emit(val);
       }
     });

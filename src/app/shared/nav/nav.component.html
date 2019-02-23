@@ -1,11 +1,15 @@
 <nav class="nav">
   <div class="logo">logo</div>
   <form action="" class="search">
-    <input type="text" placeholder="search">
+    <input type="text" placeholder="search" class="form-control">
   </form>
   <div class="links">    
     <a routerLinkActive="active-link" routerLink="/cart"><i class="fas fa-cart-plus"></i></a>
     <a routerLinkActive="active-link" routerLink="/home"><i class="fas fa-home"></i></a>
-    <a routerLinkActive="active-link" routerLink="/product">all products</a>
+    <a routerLinkActive="active-link" routerLink="/product">products</a>
+  </div>
+  <div class="auth">
+    <div *ngIf="!(user$ | async)" class="auth__action" (click)="login()">login</div>
+    <div *ngIf="user$ | async" class="auth__action" (click)="logout()">logout</div>
   </div>
 </nav>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/core/auth.service';
+import { ToastrManager } from 'ng6-toastr-notifications';
 
 @Component({
   selector: 'app-nav',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  constructor() { }
+  public user$ = this.auth.user$;
+  constructor(private auth: AuthService,
+              private toastr: ToastrManager) { }
 
   ngOnInit() {
+    this.user$.subscribe(val => console.log(val));
   }
+  login() {
+    this.auth.login();
+    this.toastr.successToastr('logged in');
 
+  }
+  logout() {
+    this.auth.logout();
+    this.toastr.infoToastr('logged out');
+  }
 }

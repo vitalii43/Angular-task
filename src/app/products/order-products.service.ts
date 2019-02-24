@@ -1,18 +1,36 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, BehaviorSubject } from 'rxjs';
 import { Order } from './entities';
 
 @Injectable()
 export class OrderProductsService {
-  private orders = JSON.parse(localStorage.getItem('orders')) || [];
+  private ordersSubject = new BehaviorSubject<Order[]>(
+    JSON.parse(localStorage.getItem('orders')) || []);
+  public orders$ = this.ordersSubject.asObservable();
+
   constructor() { }
 
   orderProduct(orderData) {
-    this.orders.push(orderData);
-    console.log(this.orders);
-    localStorage.setItem('orders', JSON.stringify(this.orders));
+    const newOrders = this.ordersSubject.value;
+    newOrders.push({...orderData, orderId: '_' + Math.random().toString(36).substr(2, 9)});
+    localStorage.setItem('orders', JSON.stringify(newOrders));
+    this.ordersSubject.next(newOrders);
   }
+
   getOrders(): Observable<Order[]> {
-    return of(JSON.parse(localStorage.getItem('orders')));
+    return this.orders$;
+  }
+
+  removeOrder(id: string) {
+    const newOrders = this.ordersSubject.value;
+    const removeIndx = newOrders.findIndex(item => item.orderId === id);
+    newOrders.splice(removeIndx, 1);
+
+    this.ordersSubject.next(newOrders);
+    localStorage.setItem('orders', JSON.stringify(newOrders));
+  }
+
+  updateOrders(data) {
+
   }
 }

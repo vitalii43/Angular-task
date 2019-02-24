@@ -3,23 +3,27 @@
 <h2 class="text-center">My cart</h2>
 
 <div class="wraper">
-  <form class="orders-form">
-    <table class="orders-table" >
+  <form [formGroup]="ordersForm" class="orders-form">
+    <table class="orders-table" formArrayName="orders">
       <tr>
         <th>icon</th>
         <th>name</th>
         <th>color</th>
         <th>quantity</th>
         <th>price</th>
+        <th></th>
       </tr>
-      <tr *ngFor = "let order of (orders$ | async) ">
+      <tr *ngFor = "let order of (orders$ | async); let i = index">
         <td>
-          <img [src]="order?.icon" alt="">
+          <img [src]="order?.icon" alt="icon" class="prod-icon">
         </td>
         <td>{{order.name}}</td>
         <td>{{order.color}}</td>
-        <td>{{order.quantity}}</td>
+        <td>
+          <input [formControlName]="i" type="number">
+        </td>
         <td>{{order.price}}</td>
+        <td><button (click)="removeOrder(i, order.orderId)" class="btn btn-danger">X</button></td>
       </tr>
     </table>
   </form>

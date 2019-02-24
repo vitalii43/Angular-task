@@ -14,7 +14,6 @@ export class NavComponent implements OnInit {
               private toastr: ToastrManager) { }
 
   ngOnInit() {
-    this.user$.subscribe(val => console.log(val));
   }
   login() {
     this.auth.login();

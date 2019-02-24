@@ -20,7 +20,6 @@ export class AuthGuard implements CanActivate, CanLoad {
     return this.auth.user$.pipe(
       first(),
       tap((val: boolean) => {
-        console.log(val);
         if (!val) {
           this.toastr.errorToastr('you must login');
         }
@@ -29,12 +28,10 @@ export class AuthGuard implements CanActivate, CanLoad {
   }
   canLoad( route: Route,
            segments: UrlSegment[] ): Observable<boolean> | Promise<boolean> | boolean {
-      console.log(this.auth.user$);
-      return this.auth.user$.pipe(
+       return this.auth.user$.pipe(
           first(),
           tap((val: boolean) => {
-            console.log(val);
-            if (!val) {
+             if (!val) {
               this.toastr.errorToastr('you must login');
             }
           })

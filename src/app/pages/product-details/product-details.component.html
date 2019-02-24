@@ -11,11 +11,30 @@
     <hr>
     <div class="wrap">
       <div class="description">{{(product | async)?.description}}</div>
-      <form class="cart-form" action="">
-        <p>{{(product | async)?.price}} $</p>
-        <input type="text">
-        <button>add to cart</button>
+      
+      <form [formGroup]="orderForm" (ngSubmit)="submitOrder()" class="cart-form">
+        <input formControlName="productId" [ngModel]="(product | async)?.id" type="hidden">
+        <input formControlName="price" [ngModel]="(product | async)?.price" type="hidden">
+        <input formControlName="name" [ngModel]="(product | async)?.name" type="hidden">
+        <input formControlName="icon" [ngModel]="(product | async)?.thumbnailUrl" type="hidden">
+        <div class="form-group d-flex justify-content-between">
+          <label for=""> price : </label>
+          <p>{{(product | async)?.price}} $</p>
+        </div>
+        <div class="form-group d-flex justify-content-between">
+          <label for="">quantity: </label>
+          <input formControlName="quantity" class="form-control" type="number">          
+        </div>
+        <div class="form-group d-flex justify-content-between">
+          <label for="selectcolor">Color select</label>
+          <select formControlName="color" class="form-control" id="selectcolor">
+            <option *ngFor="let color of (product | async)?.color" [value]="color">{{color}}</option>
+          </select>        
+        </div>
+        <button [disabled]="!orderForm.valid" class="submit" class="btn btn-primary">add to cart</button>
+        <div *ngIf="!orderForm.valid && orderForm.controls['quantity'].touched" class="errors"></div>
       </form>
+
     </div>
   </div>
 </section>

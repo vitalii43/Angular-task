@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { OrderProductsService, ProductService, Order } from '../products';
+import { Observable } from 'rxjs';
+import { tap, mergeMap, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-cart',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
-  constructor() { }
+  public orders$: Observable<Order[]>;
+
+  constructor(
+    private orderService: OrderProductsService,
+    //private productService: ProductService
+  ) { }
 
   ngOnInit() {
+    console.log('lol')
+    this.orders$ = this.orderService.getOrders()
   }
 
 }

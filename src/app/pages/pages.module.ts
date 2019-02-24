@@ -9,6 +9,7 @@ import { PageWrapComponent } from './page-wrap/page-wrap.component';
 import { ProductsModule } from '../products/products.module';
 import { SharedModule } from '../shared/shared.module';
 import { ProductService } from '../products';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,10 +22,9 @@ import { ProductService } from '../products';
     CommonModule,
     PagesRoutingModule,
     ProductsModule,
-    SharedModule
-  ],
-  providers: [
-    ProductService
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class PagesModule { }

@@ -1,5 +1,28 @@
 <app-nav></app-nav>
-<p>
-  cart works!
-</p>
+
+<h2 class="text-center">My cart</h2>
+
+<div class="wraper">
+  <form class="orders-form">
+    <table class="orders-table" >
+      <tr>
+        <th>icon</th>
+        <th>name</th>
+        <th>color</th>
+        <th>quantity</th>
+        <th>price</th>
+      </tr>
+      <tr *ngFor = "let order of (orders$ | async) ">
+        <td>
+          <img [src]="order?.icon" alt="">
+        </td>
+        <td>{{order.name}}</td>
+        <td>{{order.color}}</td>
+        <td>{{order.quantity}}</td>
+        <td>{{order.price}}</td>
+      </tr>
+    </table>
+  </form>
+</div>
+
 <app-footer></app-footer>

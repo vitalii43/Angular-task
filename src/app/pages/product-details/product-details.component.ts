@@ -13,14 +13,14 @@ import { OrderProductsService } from 'src/app/products/order-products.service';
   styleUrls: ['./product-details.component.scss']
 })
 export class ProductDetailsComponent implements OnInit, OnDestroy {
-  
+
   private authSubscr;
   private routeSubscr: any;
   private user: boolean;
 
   public interestingProducts: Observable<Product[]>;
   public product: Observable<Product>;
-  
+
   public orderForm: FormGroup;
 
   constructor(private productService: ProductService,
@@ -30,11 +30,10 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
               private toastr: ToastrManager,
               private orderService: OrderProductsService) { }
 
-  submitOrder(){
-    console.log(this.orderForm.value)
-    if(!this.user) { this.toastr.errorToastr('you must be logged in') }
-    else{
-      this.orderService.orderProduct(this.orderForm.value)
+  submitOrder() {
+    console.log(this.orderForm.value);
+    if (!this.user) { this.toastr.errorToastr('you must be logged in'); } else {
+      this.orderService.orderProduct(this.orderForm.value);
     }
   }
 
@@ -52,13 +51,13 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
       color: ['', Validators.required],
       icon: ['', Validators.required],
       price: ['', Validators.required],
-      name: ['', Validators.required], 
-    })
+      name: ['', Validators.required],
+    });
 
-    this.authSubscr = this.auth.user$.subscribe((user:boolean)=>{
-      console.log(user)
+    this.authSubscr = this.auth.user$.subscribe((user: boolean) => {
+      console.log(user);
       this.user = user;
-    })
+    });
   }
   ngOnDestroy() {
     this.routeSubscr.unsubscribe();

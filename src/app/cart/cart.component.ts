@@ -14,12 +14,12 @@ export class CartComponent implements OnInit {
 
   constructor(
     private orderService: OrderProductsService,
-    //private productService: ProductService
+    // private productService: ProductService
   ) { }
 
   ngOnInit() {
-    console.log('lol')
-    this.orders$ = this.orderService.getOrders()
+    console.log('lol');
+    this.orders$ = this.orderService.getOrders();
   }
 
 }

@@ -1,5 +1,5 @@
 
-export type Order = {
+export interface Order {
     productId: number;
     quantity: number;
     color: string;

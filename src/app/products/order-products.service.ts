@@ -30,7 +30,12 @@ export class OrderProductsService {
     localStorage.setItem('orders', JSON.stringify(newOrders));
   }
 
-  updateOrders(data) {
-
+  updateOrders(quantList) {
+    const newOrders = this.ordersSubject.value;
+    newOrders.forEach((val, idx) => {
+      val.quantity = quantList[idx];
+    });
+    localStorage.setItem('orders', JSON.stringify(newOrders));
+    this.ordersSubject.next(newOrders);
   }
 }

@@ -31,7 +31,6 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
               private orderService: OrderProductsService) { }
 
   submitOrder() {
-    console.log(this.orderForm.value);
     if (!this.user) { this.toastr.errorToastr('you must be logged in'); } else {
       this.orderService.orderProduct(this.orderForm.value);
     }
@@ -42,7 +41,6 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
     this.routeSubscr = this.activeRoute.paramMap.subscribe(params => {
       const id = +params.get('id');
       this.product = this.productService.getProductDetails(id);
-      console.log(this.product);
     });
 
     this.orderForm = this.fb.group({
@@ -55,7 +53,6 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
     });
 
     this.authSubscr = this.auth.user$.subscribe((user: boolean) => {
-      console.log(user);
       this.user = user;
     });
   }

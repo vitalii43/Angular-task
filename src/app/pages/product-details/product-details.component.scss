@@ -53,3 +53,7 @@
         text-align: end;
     }
 }
+input.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched{
+    border-left: 3px solid red 
+}

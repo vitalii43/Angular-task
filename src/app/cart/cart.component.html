@@ -20,12 +20,14 @@
         <td>{{order.name}}</td>
         <td>{{order.color}}</td>
         <td>
-          <input [formControlName]="i" type="number">
+          <input [formControlName]="i" type="number" class="">
         </td>
         <td>{{order.price}}</td>
         <td><button (click)="removeOrder(i, order.orderId)" class="btn btn-danger">X</button></td>
       </tr>
+      <h3 class="text-end">total price: {{totalPrice}} $</h3>
     </table>
+    
   </form>
 </div>
 

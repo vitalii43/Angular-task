@@ -33,8 +33,6 @@ export class ProductService {
   }
 
   getProductDetails(id: number): Observable<Product> {
-
-    console.log(id);
     return this.products.pipe(
       map( arr => {
         return arr.find( elem => elem.id === id );
@@ -46,7 +44,6 @@ export class ProductService {
 
     return this.products.pipe(
       map((prodList: Product[]) => {
-        console.log(filterInfo);
         let { minPrice, maxPrice, color} = filterInfo;
 
         if ( !minPrice ) { minPrice = 0; }

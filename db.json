@@ -243,22 +243,6 @@
             "id": 15,
             "interesting": false,
             "feature": true
-        },
-        {
-            "title": "some title",
-            "name": "cool name",
-            "description": "description about the product fv dfv dfv fdv d f vdf df vfvf d df df vd ",
-            "price": 390,
-            "color": [
-                "white",
-                "black",
-                "silver"
-            ],
-            "photoURL": "https://i2.rozetka.ua/goods/11037886/xiaomi_mi_9_6_64gb_black_images_11037886929._R640x640.jpg",
-            "thumbnailUrl": "https://via.placeholder.com/150/92c952",
-            "id": 16,
-            "interesting": true,
-            "feature": false
         }
     ]
 }
